@@ -1,0 +1,27 @@
+
+
+.custom-cursor {
+    height: 0.5rem;
+    width: 0.5rem;
+    margin: 4.75rem;
+    border-radius: 50%;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+}
+
+.cursor-pointer {
+    background-color: black;
+}
+
+.cursor-ring {
+    height: 5rem;
+    width: 5rem;
+    margin: 2.5rem;
+    transition: transform cubic-bezier(0.005, 0.008, 0.02, 0.999) 1s;
+    border: solid 0.5px black;
+    left: -0.25px;
+    top: -0.25px;
+}
