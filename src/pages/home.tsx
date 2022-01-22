@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Bubbles from "../components/Bubbles";
+import InfoTab from "../components/InfoTab";
+import showBubbles from "../hooks/showBubbles";
 
 
 
@@ -9,35 +12,44 @@ export default function Home() {
     const[min, setMin] = useState(0);
     const[max, setMax] = useState(100);
     const[guessCount, setCount] = useState(1);
-    const[showInfo, setInfo] = useState(false);
-    const[infoClasses, setInfoClasses] = useState("info-tab-container");
     const[bubbleWord, setBubbleWords] = useState("let's get started!");
 
-    useEffect(() => {
-        if (!showInfo) {
-            setInfoClasses("info-tab-container");
-        } else {
-            setInfoClasses("info-tab-container show-info-tab");
-        }
-    }, [showInfo]);
+
 
     function guessLower() {
-        let newMax = guessInt - 1;
-        setMax(guessInt - 1);
-
-        setGuess(Math.floor(Math.random() * (newMax - min + 1)) + min);
-        setCount(guessCount + 1);
+        transitionText();
+        
+        setTimeout(() => {
+            let newMax = guessInt - 1;
+            setMax(guessInt - 1);
+            setGuess(Math.floor(Math.random() * (newMax - min + 1)) + min);
+            setCount(guessCount + 1);
+        }, 200);
     }
     
     function guessHigher() {
-        let newMin = guessInt + 1;
-        setMin(guessInt + 1);
-        setGuess(Math.floor(Math.random() * (max - newMin + 1)) + newMin);
-        setCount(guessCount + 1);
+        transitionText();
+
+        setTimeout(() => {
+            let newMin = guessInt + 1;
+            setMin(guessInt + 1);
+            setGuess(Math.floor(Math.random() * (max - newMin + 1)) + newMin);
+            setCount(guessCount + 1);
+        }, 250);
+    }
+
+    function transitionText() {
+        let doc = document.querySelector(".guess-int-number") as HTMLElement;
+
+        doc.style.opacity = "0";
+
+        setTimeout(() => {
+            doc.style.opacity = "1";
+        }, 300);
     }
 
     function correctGuess() {
-        showBubbles("#3f3f3f", "wow, took me " + guessCount + " guesses..");
+        callBubbles("#3f3f3f", "wow, took me " + guessCount + " guesses..", "white");
 
         setTimeout(() => {
             setGuess(Math.floor(Math.random() * 100));
@@ -49,46 +61,45 @@ export default function Home() {
         }, 500);
     }
 
+    function callBubbles(x : string, y : string, z : string) {
+        setBubbleWords(y);
+        showBubbles(x,z);
+    }
+
     function startGame() {
-        showBubbles("#d47fad", "let's get started!");
+        callBubbles("#d47fad", "let's get started!", "black");
+
+        let doc2 = document.querySelector(".guess-int-number") as HTMLElement;
+        doc2.style.opacity = "0";
 
         setTimeout(() => {
             let doc = (document.querySelector(".start-tab") as HTMLElement);
             doc.style.display = "none";
-        }, 500)
+
+            setTimeout(() => {
+                doc2.style.opacity = "1";
+            }, 3000); //time to show first guess
+        }, 500);
     }
 
     function resetGame() {
-        setGuess(Math.floor(Math.random() * 100));
-        setMin(0)
-        setMax(100);
-        setCount(0);
-        let doc = (document.querySelector(".start-tab") as HTMLElement);
-        doc.style.display = "flex";
-    }
-
-    function showBubbles(colour : string, text : string) {
-        let doc = (document.querySelector(".bubble-cover") as HTMLElement);
-        doc.style.top = "0";
-        doc.style.transition = "top ease 0.5s";
-        doc.style.backgroundColor = colour;
-        setBubbleWords(text);
+        callBubbles("#3f3f3f", "okayyy, maybe next time..", "white");
 
         setTimeout(() => {
-            doc.style.top = "-100vh";
-        }, 2000);
-
-        setTimeout(() => {
-            doc.style.transition = "top ease 0s";
-            setTimeout(() => { doc.style.top = "100vh"; }, 1);
-        }, 2500);
+            setGuess(Math.floor(Math.random() * 100));
+            setMin(0)
+            setMax(100);
+            setCount(0);
+            let doc = (document.querySelector(".start-tab") as HTMLElement);
+            doc.style.display = "flex";
+        },500);
     }
 
     return(
         <div className="home-container">
             <div className="guess-int-container">
                 <div className="guess-int">
-                    <h1>{guessInt}</h1>
+                    <h1 className="guess-int-number">{guessInt}</h1>
                 </div>
             </div>
 
@@ -110,30 +121,16 @@ export default function Home() {
             </div>
 
 
-
-            <button className="information-button" onClick={() => setInfo(true)}><p>i</p></button>
-
-            <div className={infoClasses}>
-                <div className="info-tab">
-                    <div className="exit-button" onClick={() => setInfo(false)}><div/><div/></div>
-                    <p className="info-text">
-                        {"BUBBLE was created as a fun side project to sharpen my skills. " + 
-                        "I hope you enjoy the merits of my holiday project :)"}
-                    </p>
-                    <p className="dev-info">
-                        {"developed by CYNX"}
-                    </p>
-                </div>
-
-                <div className="back-cover"/>
-            </div>
-
+            <InfoTab/>
+           
             <div className="start-tab">
                 <button className="start-button" onClick={() => startGame()}><p>START</p></button>
             </div>
 
+            <Bubbles/>
+
             <div className="bubble-cover">
-                <p>{bubbleWord}</p>
+                <p className="bubble-cover-text">{bubbleWord}</p>
             </div>
         </div>
     );
