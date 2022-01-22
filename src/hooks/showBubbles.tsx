@@ -10,19 +10,13 @@ export default function showBubbles(colour : string, textColour : string) {
     doc.style.top = "0";
     doc.style.transition = "top ease 0.5s";
     docText.style.color = textColour;
-    [1,2,3].forEach((x) => {
+    [1,2,3,4,5,6,7,8,9].forEach((x) => {
         let localBubble = document.querySelector(".bubble-" + x) as HTMLElement;
-        localBubble.style.top = "-20rem";
-        localBubble.style.transition = "top ease " + Math.floor(Math.random() * 2 + 1) + "s 0." + Math.floor(Math.random() * 9) + "s";
+        let delay = (Math.floor(Math.random() * 5) + x) * 0.1;
+        localBubble.style.top = "-24rem";
+        localBubble.style.transition = "top linear " + Math.floor(Math.random() * 2 + (x * 0.1)) + "s " + delay + "s";
+        localBubble.style.left = Math.floor(Math.random() * 95 - 2.5) + "vw";
     });
-
-
-
-
-
-
-    
-
 
     
     setTimeout(() => {
@@ -36,7 +30,7 @@ export default function showBubbles(colour : string, textColour : string) {
     setTimeout(() => {
         doc.style.top = "-100vh";
 
-        [1,2,3].forEach((x) => {
+        [1,2,3,4,5,6,7,8,9].forEach((x) => {
             (document.querySelector(".bubble-" + x) as HTMLElement).style.transition = "top ease 0s 0s";
         });
 
@@ -45,7 +39,7 @@ export default function showBubbles(colour : string, textColour : string) {
     setTimeout(() => {
         doc.style.transition = "top ease 0s";
 
-        [1,2,3].forEach((x) => {
+        [1,2,3,4,5,6,7,8,9].forEach((x) => {
             (document.querySelector(".bubble-" + x) as HTMLElement).style.top = "100vh";
         });
 

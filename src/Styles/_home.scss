@@ -52,7 +52,8 @@
         font-size: 1.5rem;
         box-shadow: 0.5rem 0.5rem black;
         background-color: white;
-        transition: background-color ease 0.5s;
+        transform: scale(1);
+        transition: background-color ease 0.5s, transform ease 0.35s;
 
         p {
             color: black;
@@ -75,7 +76,7 @@
     height: 12rem;
     // margin-right: 12vw;
 
-    div {
+    button {
         height: 6rem;
         width: 6rem;
         border-radius: 50%;
@@ -87,11 +88,12 @@
         align-items: center;
         margin: 0;
         margin-right: 10rem;
-        transition: background-color ease 0.5s;
+        transition: background-color ease 0.5s, transform ease 0.35s;
 
         p {
             color: white;
             margin: 0;
+            font-size: 1rem;
         }
 
         &:hover {
@@ -116,7 +118,7 @@
     background-color: white;
     border: solid 3px black;
     box-shadow: 0.2rem 0.2rem black;
-    transition: background-color ease 0.5s;
+    transition: background-color ease 0.5s, transform ease 0.35s;
 
 
     p {
@@ -164,7 +166,7 @@
                 width: 2.5rem;
                 background-color: black;
                 border-radius: 1rem;
-                transition: transform ease 0.5s;
+                transition: transform ease 0.35s;
             }
     
             :first-child {
@@ -267,7 +269,7 @@
         border-radius: 1rem;
         border: solid 3px black;
         box-shadow: 0.35rem 0.35rem black;
-        transition: background-color ease 0.5s;
+        transition: background-color ease 0.5s, transform ease 0.35s;
         background-color: white;
 
         p {

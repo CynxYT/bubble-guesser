@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import Bubbles from "../components/Bubbles";
 import InfoTab from "../components/InfoTab";
+import scaleItem from "../hooks/scaleItem";
 import showBubbles from "../hooks/showBubbles";
 
 
@@ -95,6 +96,15 @@ export default function Home() {
         },500);
     }
 
+    // const scaleItem = (classname : string, scaleDown : boolean) => {
+    //     if (scaleDown) {
+    //         (document.querySelector("." + classname) as HTMLElement).style.transform = "scale(0.97)";
+    //     }
+    //     else {
+    //         (document.querySelector("." + classname) as HTMLElement).style.transform = "scale(1)";
+    //     }
+    // }
+
     return(
         <div className="home-container">
             <div className="guess-int-container">
@@ -105,18 +115,18 @@ export default function Home() {
 
             <div className="button-section">
                 <div className="button-inner-section lower-section">
-                    <button onClick={guessLower}><p>LOWER</p></button>
+                    <button className="lower-button" onClick={guessLower} onMouseDown={() => scaleItem("lower-button", true)} onMouseUp={() => scaleItem("lower-button", false)}><p>LOWER</p></button>
                 </div>
 
                 <div className="button-inner-section red-section">
                     <div  className="red-button-section">
-                        <div onClick={resetGame} className="top-red"><p>{"<-"}</p></div>
-                        <div onClick={correctGuess}><p>DONE!</p></div>
+                        <button className="top-red" onClick={resetGame} onMouseDown={() => scaleItem("top-red", true)} onMouseUp={() => scaleItem("top-red", false)}><p>{"<-"}</p></button>
+                        <button className="done-red" onClick={correctGuess} onMouseDown={() => scaleItem("done-red", true)} onMouseUp={() => scaleItem("done-red", false)}><p>DONE!</p></button>
                     </div>
                 </div>
 
                 <div className="button-inner-section higher-section">
-                    <button onClick={guessHigher}><p>HIGHER</p></button>
+                    <button className="higher-button" onClick={guessHigher} onMouseDown={() => scaleItem("higher-button", true)} onMouseUp={() => scaleItem("higher-button", false)}><p>HIGHER</p></button>
                 </div>
             </div>
 
@@ -124,7 +134,7 @@ export default function Home() {
             <InfoTab/>
            
             <div className="start-tab">
-                <button className="start-button" onClick={() => startGame()}><p>START</p></button>
+                <button className="start-button" onClick={() => startGame()} onMouseDown={() => scaleItem("start-button", true)} onMouseUp={() => scaleItem("start-button", false)}><p>START</p></button>
             </div>
 
             <Bubbles/>

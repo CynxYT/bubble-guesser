@@ -1,12 +1,17 @@
 
 - Cursor
-    - make cursor
+    - make cursor match better
+    - cursor changes upon press
 
 - Preloader
-    - everything
-
+    - make animations
+    
 - Home
-    - buttons
-    - text
-    - infomation tab/button
-    - themes (multple/ pick ones)
+    - Make it say 1 guess
+
+- Info tab
+    - Make animations
+    - 
+
+- Deplyoyment
+    - make icon
