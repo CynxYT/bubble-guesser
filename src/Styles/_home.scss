@@ -12,19 +12,21 @@
 }
 
 .guess-int {
-    height: 45vh;
+    height: 35vh;
     width: calc(100vw - 35vh);
     background-color: white;
     border-radius: 1rem;
     border: solid 3px black;
     box-shadow: 0.5rem 0.5rem black;
+    opacity: 0;
+    transition: opacity ease 0.25s 0.3s, height ease 0.5s 0.3s;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     .guess-int-number {
-        opacity: 0;
+        opacity: 1;
         transition: opacity ease 0.25s;
     }
 }
@@ -53,7 +55,8 @@
         box-shadow: 0.5rem 0.5rem black;
         background-color: white;
         transform: scale(1);
-        transition: background-color ease 0.5s, transform ease 0.35s;
+        opacity: 0;
+        transition: background-color ease 0.5s, transform ease 0.35s, opacity ease 0.5s 0.3s;
 
         p {
             color: black;
@@ -88,7 +91,8 @@
         align-items: center;
         margin: 0;
         margin-right: 10rem;
-        transition: background-color ease 0.5s, transform ease 0.35s;
+        opacity: 0;
+        transition: background-color ease 0.5s, transform ease 0.35s, opacity ease 0.5s;
 
         p {
             color: white;
@@ -105,6 +109,7 @@
         margin-right: 0;
         margin-left: 10rem;
     }
+ 
 }
 
 .information-button {
@@ -233,61 +238,6 @@
         pointer-events: initial;
     }
 }
-
-.socials-tab {
-    height: 16rem;
-    width: 4rem;
-    position: fixed;
-    display: grid;
-    top: 1rem;
-    left: 1rem;
-
-    div {
-        height: 4rem;
-        width: 4rem;
-        border-radius: 0.75rem;
-        background-color: white;
-        border: solid 3px black;
-        box-shadow: 0.2rem 0.2rem black;
-    }
-}
-
-.start-tab {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #eb89be;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    button {
-        height: 10rem;
-        width: 24rem;
-        border-radius: 1rem;
-        border: solid 3px black;
-        box-shadow: 0.35rem 0.35rem black;
-        transition: background-color ease 0.5s, transform ease 0.35s;
-        background-color: white;
-
-        p {
-            color: black;
-            transition: color ease 0.5s;
-            font-size: 1.4rem;
-        }
-
-        &:hover {
-            background-color: #3f3f3f;
-
-            p {
-                color: white;
-            }
-        }
-    }
-}
-
 
 
 @media (max-width: 1200px) {

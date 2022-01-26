@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Bubbles from "../components/Bubbles";
 import InfoTab from "../components/InfoTab";
+import Socials from "../components/Socials";
+import StartBubble from "../components/StartBubble";
 import scaleItem from "../hooks/scaleItem";
 import showBubbles from "../hooks/showBubbles";
 
@@ -41,7 +43,6 @@ export default function Home() {
 
     function transitionText() {
         let doc = document.querySelector(".guess-int-number") as HTMLElement;
-
         doc.style.opacity = "0";
 
         setTimeout(() => {
@@ -70,16 +71,25 @@ export default function Home() {
     function startGame() {
         callBubbles("#d47fad", "let's get started!", "black");
 
-        let doc2 = document.querySelector(".guess-int-number") as HTMLElement;
-        doc2.style.opacity = "0";
+        let doc2 = document.querySelectorAll(".guess-int, .lower-button, .higher-button, .top-red, .done-red") as NodeListOf<HTMLElement>;
+        let doc3 = document.querySelector(".guess-int") as HTMLElement;
+
+        doc2.forEach((x) => {
+            x.style.opacity = "0";
+        })
+        doc3.style.height = "35vh";
 
         setTimeout(() => {
             let doc = (document.querySelector(".start-tab") as HTMLElement);
             doc.style.display = "none";
 
             setTimeout(() => {
-                doc2.style.opacity = "1";
-            }, 3000); //time to show first guess
+                doc2.forEach((x) => {
+                    x.style.opacity = "1";
+                })
+                doc3.style.height = "45vh";
+        
+            }, 2800); //time to show first guess
         }, 500);
     }
 
@@ -95,15 +105,6 @@ export default function Home() {
             doc.style.display = "flex";
         },500);
     }
-
-    // const scaleItem = (classname : string, scaleDown : boolean) => {
-    //     if (scaleDown) {
-    //         (document.querySelector("." + classname) as HTMLElement).style.transform = "scale(0.97)";
-    //     }
-    //     else {
-    //         (document.querySelector("." + classname) as HTMLElement).style.transform = "scale(1)";
-    //     }
-    // }
 
     return(
         <div className="home-container">
@@ -134,7 +135,11 @@ export default function Home() {
             <InfoTab/>
            
             <div className="start-tab">
-                <button className="start-button" onClick={() => startGame()} onMouseDown={() => scaleItem("start-button", true)} onMouseUp={() => scaleItem("start-button", false)}><p>START</p></button>
+                <div className="start-button-container">
+                    <button className="start-button" onClick={() => startGame()} onMouseDown={() => scaleItem("start-button", true)} onMouseUp={() => scaleItem("start-button", false)}><p>START</p></button>
+                </div>
+                <Socials/>
+                <StartBubble/>
             </div>
 
             <Bubbles/>
