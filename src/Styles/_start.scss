@@ -1,7 +1,7 @@
 
 .socials-tab {
     display: grid;
-    padding: 0.8rem;
+    padding: 1rem;
 
 
     .social-container {
@@ -108,6 +108,7 @@
     height: 14rem;
     width: 14rem;
     z-index: 4.2;
+    transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 3s;
     background-color: #f08fc2;
 }
 
@@ -115,7 +116,7 @@
     height: 22rem;
     width: 22rem;
     z-index: 4.1;
-    transition: transform ease 0.35s;
+    transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 3s;
     background-color: #e283b6;
 }
 
@@ -123,31 +124,30 @@
     height: 30rem;
     width: 30rem;
     z-index: 4;
-    transition: transform ease 0.5s;
+    transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 3s;
     background-color: #e07db2;
 }
 
 
 .start-bubble-1 {
-    top: unset;
-    bottom: -5rem;
-    right: -5rem;
+    top: -8rem;
+    left: -8rem;
 }
 
 .start-bubble-2 {
     top: -16rem;
-    left: 23rem;
+    left: 24rem;
 }
 
 .start-bubble-3 {
-    top: 28rem;
-    left: -10rem;
+    top: 45vh;
+    left: -9rem;
 }
 
 .start-bubble-4 {
-    top: -5rem;
-    left: -5rem;
-    // box-shadow: unset;
+    top: unset;
+    bottom: -4rem;
+    right: -6rem;
 }
 
 .start-bubble-5 {
@@ -158,8 +158,8 @@
 
 .start-bubble-6 {
     top: unset;
-    bottom: 24rem;
-    right: -10rem;
+    bottom: 45vh;
+    right: -8rem;
 }
 
 

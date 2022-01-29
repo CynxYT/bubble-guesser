@@ -147,9 +147,9 @@
 
     .info-tab {
         position: fixed;
-        top: 8rem;
+        top: 13rem;
         left: 9rem;
-        height: calc(100vh - 16rem);
+        height: calc(100vh - 26rem);
         width: calc(100vw - 18rem);
         background-color: white;
         opacity: 0;
@@ -158,13 +158,15 @@
         z-index: 4;
         border: solid 3px black;
         box-shadow: 0.5rem 0.5rem black;
+        transition: opacity ease 0.3s, height ease 0.3s, top ease 0.3s;
     
         .exit-button {
             height: 4rem;
             width: 4rem;
             position: fixed;
-            top: 8.5rem;
+            top: 13.5rem;
             right: 9rem;
+            transition: top ease 0.3s;
             
             div {
                 height: 4px;
@@ -185,7 +187,7 @@
             &:hover {
 
                 :first-child {
-                    transform: translate(calc(0.75rem - 2px), 2rem) rotate(135deg);
+                    transform: translate(calc(0.75rem - 2px), 2rem) rotate(-45deg);
                 }
         
                 :last-child {
@@ -201,14 +203,16 @@
         .info-text {
             width: calc(100vw - 26rem);
             margin: 4rem;
-            margin-top: 6rem;
+            margin-top: 8rem;
             line-height: 3rem;
+            transition: margin ease 0.3s;
         }
 
         .dev-info {
             right: 12rem;
-            bottom: 9rem;
+            bottom: 14rem;
             position: fixed;
+            transition: bottom ease 0.3s;
         }
     
     }
@@ -216,13 +220,13 @@
     .back-cover {
         z-index: 3;
         position: fixed;
-        top: 0;
+        bottom: 0;
         left: 0;
-        height: 100vh;
+        height: 0;
         width: 100vw;
         background-color: #d47fad; //#eb97c4;
-        opacity: 0;
         pointer-events: none;
+        transition: height ease 0.5s 0.25s;
     }
 }
 
@@ -230,12 +234,31 @@
 .show-info-tab {
     .info-tab {
         opacity: 1;
+        height: calc(100vh - 16rem);
+        top: 8rem;
         pointer-events: initial;
+        transition: opacity ease 0.5s 0.35s, height ease 0.5s 0.35s, top ease 0.5s 0.35s;
+
+        .exit-button {
+            top: 8.5rem;
+            transition: top ease 0.5s 0.35s;
+        }
+
+        .info-text {
+            margin-top: 6rem;
+            transition: margin ease 0.5s 0.35s;
+        }
+
+        .dev-info {
+            bottom: 9rem;
+            transition: bottom ease 0.5s 0.35s;
+        }
     }
 
     .back-cover {
-        opacity: 1;
+        height: 100vh;
         pointer-events: initial;
+        transition: height ease 0.5s;
     }
 }
 

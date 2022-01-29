@@ -89,7 +89,7 @@ export default function Home() {
                 })
                 doc3.style.height = "45vh";
         
-            }, 2800); //time to show first guess
+            }, 2600); //time to show first guess
         }, 500);
     }
 
