@@ -18,4 +18,4 @@
     - make icon
 
 - Start
-    - make socials - icons
+    - Give socials hover animations
