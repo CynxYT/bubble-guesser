@@ -108,7 +108,7 @@ export default function Home() {
             setGuess(Math.floor(Math.random() * 100));
             setMin(0)
             setMax(100);
-            setCount(0);
+            setCount(1);
             let doc = (document.querySelector(".start-tab") as HTMLElement);
             doc.style.display = "flex";
         },500);
