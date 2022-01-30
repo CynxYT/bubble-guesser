@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Bubbles from "../components/Bubbles";
 import InfoTab from "../components/InfoTab";
+import Noise from "../components/Noise";
 import Socials from "../components/Socials";
 import StartBubble from "../components/StartBubble";
 import scaleItem from "../hooks/scaleItem";
@@ -89,7 +90,12 @@ export default function Home() {
                 doc2.forEach((x) => {
                     x.style.opacity = "1";
                 })
-                doc3.style.height = "45vh";
+                if (window.screen.availWidth > 800) {
+                    doc3.style.height = "45vh";
+                } else {
+                    doc3.style.height = "40Cvh";
+                }
+                
         
             }, 2600); //time to show first guess
         }, 500);
@@ -123,7 +129,7 @@ export default function Home() {
 
                 <div className="button-inner-section red-section">
                     <div  className="red-button-section">
-                        <button className="top-red" onClick={resetGame} onMouseDown={() => scaleItem("top-red", true)} onMouseUp={() => scaleItem("top-red", false)}><p>{"<-"}</p></button>
+                        <button className="top-red" onClick={resetGame} onMouseDown={() => scaleItem("top-red", true)} onMouseUp={() => scaleItem("top-red", false)}><div/></button>
                         <button className="done-red" onClick={correctGuess} onMouseDown={() => scaleItem("done-red", true)} onMouseUp={() => scaleItem("done-red", false)}><p>DONE!</p></button>
                     </div>
                 </div>
@@ -145,6 +151,8 @@ export default function Home() {
             </div>
 
             <Bubbles/>
+
+            <Noise/>
 
             <div className="bubble-cover">
                 <p className="bubble-cover-text">{bubbleWord}</p>

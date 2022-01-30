@@ -69,8 +69,8 @@
   height: 12rem;
 }
 .red-button-section button {
-  height: 6rem;
-  width: 6rem;
+  height: 6rem !important;
+  width: 6rem !important;
   border-radius: 50%;
   background-color: #2c2b2b;
   border: solid 3px black;
@@ -124,9 +124,9 @@
 
 .info-tab-container .info-tab {
   position: fixed;
-  top: 8rem;
+  top: 13rem;
   left: 9rem;
-  height: calc(100vh - 16rem);
+  height: calc(100vh - 26rem);
   width: calc(100vw - 18rem);
   background-color: white;
   opacity: 0;
@@ -135,13 +135,15 @@
   z-index: 4;
   border: solid 3px black;
   box-shadow: 0.5rem 0.5rem black;
+  transition: opacity ease 0.3s, height ease 0.3s, top ease 0.3s;
 }
 .info-tab-container .info-tab .exit-button {
   height: 4rem;
   width: 4rem;
   position: fixed;
-  top: 8.5rem;
+  top: 13.5rem;
   right: 9rem;
+  transition: top ease 0.3s;
 }
 .info-tab-container .info-tab .exit-button div {
   height: 4px;
@@ -157,7 +159,7 @@
   transform: translate(calc(0.75rem - 2px), calc(2rem - 4px)) rotate(-45deg);
 }
 .info-tab-container .info-tab .exit-button:hover :first-child {
-  transform: translate(calc(0.75rem - 2px), 2rem) rotate(135deg);
+  transform: translate(calc(0.75rem - 2px), 2rem) rotate(-45deg);
 }
 .info-tab-container .info-tab .exit-button:hover :last-child {
   transform: translate(calc(0.75rem - 2px), calc(2rem - 4px)) rotate(45deg);
@@ -168,123 +170,51 @@
 .info-tab-container .info-tab .info-text {
   width: calc(100vw - 26rem);
   margin: 4rem;
-  margin-top: 6rem;
+  margin-top: 8rem;
   line-height: 3rem;
+  transition: margin ease 0.3s;
 }
 .info-tab-container .info-tab .dev-info {
   right: 12rem;
-  bottom: 9rem;
+  bottom: 14rem;
   position: fixed;
+  transition: bottom ease 0.3s;
 }
 .info-tab-container .back-cover {
   z-index: 3;
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
-  height: 100vh;
+  height: 0;
   width: 100vw;
   background-color: #d47fad;
-  opacity: 0;
   pointer-events: none;
+  transition: height ease 0.5s 0.25s;
 }
 
 .show-info-tab .info-tab {
   opacity: 1;
+  height: calc(100vh - 16rem);
+  top: 8rem;
   pointer-events: initial;
+  transition: opacity ease 0.5s 0.35s, height ease 0.5s 0.35s, top ease 0.5s 0.35s;
+}
+.show-info-tab .info-tab .exit-button {
+  top: 8.5rem;
+  transition: top ease 0.5s 0.35s;
+}
+.show-info-tab .info-tab .info-text {
+  margin-top: 6rem;
+  transition: margin ease 0.5s 0.35s;
+}
+.show-info-tab .info-tab .dev-info {
+  bottom: 9rem;
+  transition: bottom ease 0.5s 0.35s;
 }
 .show-info-tab .back-cover {
-  opacity: 1;
+  height: 100vh;
   pointer-events: initial;
-}
-
-.socials-tab {
-  display: grid;
-  padding: 0.8rem;
-}
-.socials-tab .social-container {
-  height: 2.5rem;
-  width: 2.5rem;
-  margin: 0.5rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid 2px black;
-  box-shadow: 0.2rem 0.2rem black;
-  background-color: #2c2b2b;
-  z-index: 5;
-}
-.socials-tab .social-container div {
-  background-color: white;
-  transform: scale(0.7);
-}
-.socials-tab .twitter-icon {
-  -webkit-mask-image: url("icons/twitter-brands.svg");
-  mask-image: url("icons/twitter-brands.svg");
-  width: 1.7rem;
-  height: 1.7rem;
-}
-.socials-tab .instagram-icon {
-  -webkit-mask-image: url("icons/instagram-brands.svg");
-  mask-image: url("icons/instagram-brands.svg");
-  height: 1.7rem;
-  width: 1.45rem;
-}
-.socials-tab .linkedin-icon {
-  -webkit-mask-image: url("icons/linkedin-in-brands.svg");
-  mask-image: url("icons/linkedin-in-brands.svg");
-  height: 1.7rem;
-  width: 1.45rem;
-}
-.socials-tab .watermark-icon {
-  -webkit-mask-image: url("icons/watermark.svg");
-  mask-image: url("icons/watermark.svg");
-  height: 1.7rem;
-  width: 1.1rem;
-}
-
-.start-tab {
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  top: 0;
-  left: 0;
-  background-color: #eb89be;
-}
-.start-tab .start-button-container {
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-}
-.start-tab button {
-  height: 10rem;
-  width: 24rem;
-  border-radius: 1rem;
-  border: solid 3px black;
-  box-shadow: 0.35rem 0.35rem black;
-  transition: background-color ease 0.5s, transform ease 0.35s;
-  background-color: white;
-  pointer-events: all;
-}
-.start-tab button p {
-  color: black;
-  transition: color ease 0.5s;
-  font-size: 1.4rem;
-}
-.start-tab button:hover {
-  background-color: #3f3f3f;
-}
-.start-tab button:hover p {
-  color: white;
+  transition: height ease 0.5s;
 }
 
 @media (max-width: 1200px) {
@@ -442,6 +372,171 @@
 .big-bubble {
   height: 22rem;
   width: 22rem;
+}
+
+.socials-tab {
+  display: grid;
+  padding: 1rem;
+}
+.socials-tab .social-container {
+  height: 2.5rem;
+  width: 2.5rem;
+  margin: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px black;
+  box-shadow: 0.2rem 0.2rem black;
+  background-color: #2c2b2b;
+  z-index: 5;
+  transition: background-color ease 0.5s;
+}
+.socials-tab .social-container div {
+  background-color: white;
+  transform: scale(0.7);
+}
+.socials-tab .social-container:hover {
+  background-color: #3f3f3f;
+}
+.socials-tab .twitter-icon {
+  -webkit-mask-image: url("icons/twitter-brands.svg");
+  mask-image: url("icons/twitter-brands.svg");
+  width: 1.7rem;
+  height: 1.7rem;
+}
+.socials-tab .instagram-icon {
+  -webkit-mask-image: url("icons/instagram-brands.svg");
+  mask-image: url("icons/instagram-brands.svg");
+  height: 1.7rem;
+  width: 1.45rem;
+}
+.socials-tab .linkedin-icon {
+  -webkit-mask-image: url("icons/linkedin-in-brands.svg");
+  mask-image: url("icons/linkedin-in-brands.svg");
+  height: 1.7rem;
+  width: 1.45rem;
+}
+.socials-tab .watermark-icon {
+  -webkit-mask-image: url("icons/watermark.svg");
+  mask-image: url("icons/watermark.svg");
+  height: 1.7rem;
+  width: 1.1rem;
+}
+
+.start-tab {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  top: 0;
+  left: 0;
+  background-color: #eb89be;
+}
+.start-tab .start-button-container {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 5;
+}
+.start-tab button {
+  height: 10rem;
+  width: 24rem;
+  border-radius: 1rem;
+  border: solid 3px black;
+  box-shadow: 0.35rem 0.35rem black;
+  transition: background-color ease 0.5s, transform ease 0.35s;
+  background-color: white;
+  pointer-events: all;
+}
+.start-tab button p {
+  color: black;
+  transition: color ease 0.5s;
+  font-size: 1.4rem;
+}
+.start-tab button:hover {
+  background-color: #3f3f3f;
+}
+.start-tab button:hover p {
+  color: white;
+}
+
+.small-start-bubble {
+  height: 14rem;
+  width: 14rem;
+  z-index: 4.2;
+  transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 3s;
+  background-color: #f08fc2;
+}
+
+.medium-start-bubble {
+  height: 22rem;
+  width: 22rem;
+  z-index: 4.1;
+  transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 3s;
+  background-color: #e283b6;
+}
+
+.big-start-bubble {
+  height: 30rem;
+  width: 30rem;
+  z-index: 4;
+  transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 3s;
+  background-color: #e07db2;
+}
+
+.start-bubble-1 {
+  top: -8rem;
+  left: -8rem;
+}
+
+.start-bubble-2 {
+  top: -16rem;
+  left: 24rem;
+}
+
+.start-bubble-3 {
+  top: 45vh;
+  left: -9rem;
+}
+
+.start-bubble-4 {
+  top: unset;
+  bottom: -4rem;
+  right: -6rem;
+}
+
+.start-bubble-5 {
+  top: unset;
+  bottom: -14rem;
+  right: 28rem;
+}
+
+.start-bubble-6 {
+  top: unset;
+  bottom: 45vh;
+  right: -8rem;
+}
+
+@media (max-width: 800px) {
+  .start-tab button {
+    height: 8rem;
+    width: 80vw;
+  }
+}
+a {
+  color: inherit;
+  /* blue colors for links too */
+  text-decoration: inherit;
+  /* no underline */
 }
 
 html {
