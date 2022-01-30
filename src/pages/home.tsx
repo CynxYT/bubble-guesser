@@ -125,18 +125,42 @@ export default function Home() {
 
             <div className="button-section">
                 <div className="button-inner-section lower-section">
-                    <button className="lower-button" onClick={guessLower} onMouseDown={() => scaleItem("lower-button", true)} onMouseUp={() => scaleItem("lower-button", false)}><p>LOWER</p></button>
+                    <button className="lower-button" 
+                        onClick={guessLower} 
+                        onMouseDown={() => scaleItem("lower-button", true)} 
+                        onMouseUp={() => scaleItem("lower-button", false)} 
+                        onMouseLeave={() => scaleItem("lower-button", false)}>
+                        <p>LOWER</p>
+                    </button>
                 </div>
 
                 <div className="button-inner-section red-section">
                     <div  className="red-button-section">
-                        <button className="top-red" onClick={resetGame} onMouseDown={() => scaleItem("top-red", true)} onMouseUp={() => scaleItem("top-red", false)}><div/></button>
-                        <button className="done-red" onClick={correctGuess} onMouseDown={() => scaleItem("done-red", true)} onMouseUp={() => scaleItem("done-red", false)}><p>DONE!</p></button>
+                        <button className="top-red" 
+                            onClick={resetGame} 
+                            onMouseDown={() => scaleItem("top-red", true)} 
+                            onMouseUp={() => scaleItem("top-red", false)} 
+                            onMouseLeave={() => scaleItem("top-red", false)}>
+                            <div/>
+                        </button>
+                        <button className="done-red" 
+                            onClick={correctGuess} 
+                            onMouseDown={() => scaleItem("done-red", true)} 
+                            onMouseUp={() => scaleItem("done-red", false)} 
+                            onMouseLeave={() => scaleItem("done-red", false)}>
+                            <p>DONE!</p>
+                        </button>
                     </div>
                 </div>
 
                 <div className="button-inner-section higher-section">
-                    <button className="higher-button" onClick={guessHigher} onMouseDown={() => scaleItem("higher-button", true)} onMouseUp={() => scaleItem("higher-button", false)}><p>HIGHER</p></button>
+                    <button className="higher-button" 
+                        onClick={guessHigher} 
+                        onMouseDown={() => scaleItem("higher-button", true)} 
+                        onMouseUp={() => scaleItem("higher-button", false)} 
+                        onMouseLeave={() => scaleItem("higher-button", false)}>
+                        <p>HIGHER</p>
+                    </button>
                 </div>
             </div>
 
@@ -145,7 +169,13 @@ export default function Home() {
            
             <div className="start-tab">
                 <div className="start-button-container">
-                    <button className="start-button" onClick={() => startGame()} onMouseDown={() => scaleItem("start-button", true)} onMouseUp={() => scaleItem("start-button", false)}><p>START</p></button>
+                    <button className="start-button" 
+                        onClick={() => startGame()} 
+                        onMouseDown={() => scaleItem("start-button", true)} 
+                        onMouseUp={() => scaleItem("start-button", false)} 
+                        onMouseLeave={() => scaleItem("start-button", false)}>
+                        <p>START</p>
+                    </button>
                 </div>
                 <Socials/>
                 <StartBubble/>

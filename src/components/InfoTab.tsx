@@ -17,7 +17,13 @@ export default function InfoTab() {
 
     return(
         <>
-            <button className="information-button" onClick={() => setInfo(true)} onMouseDown={() => scaleItem("information-button", true)} onMouseUp={() => scaleItem("information-button", false)}><p>i</p></button>
+            <button className="information-button" 
+                onClick={() => setInfo(true)} 
+                onMouseDown={() => scaleItem("information-button", true)} 
+                onMouseUp={() => scaleItem("information-button", false)} 
+                onMouseLeave={() => scaleItem("information-button", false)}>
+                <p>i</p>
+            </button>
 
             <div className={infoClasses}>
                 <div className="info-tab">
