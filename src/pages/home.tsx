@@ -51,16 +51,18 @@ export default function Home() {
     }
 
     function correctGuess() {
-        callBubbles("#3f3f3f", "wow, took me " + guessCount + " guesses..", "white");
+        let guessString = (guessCount === 1 ? " guess!!" : (guessCount < 9 ? " guesses!" : " guesses..."));
+        let introString = (guessCount < 5 ? "wow, took me " : (guessCount < 9 ? "ayye, " : "eh..., "));
+        callBubbles("#3f3f3f", introString + guessCount + guessString, "white");
 
         setTimeout(() => {
             setGuess(Math.floor(Math.random() * 100));
             setMin(0)
             setMax(100);
-            setCount(0);
+            setCount(1);
             let doc = (document.querySelector(".start-tab") as HTMLElement);
             doc.style.display = "flex";
-        }, 500);
+        }, 2500);
     }
 
     function callBubbles(x : string, y : string, z : string) {
