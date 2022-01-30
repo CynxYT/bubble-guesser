@@ -13,8 +13,5 @@
 - Info tab
     - 
 
-- Deplyoyment
-    - make icon
-
 - Start
     - Give socials hover animations
