@@ -1,6 +1,7 @@
 - General
     - Remove button hovers for mobile devices
     - Smaller bubbles for mobile sizes
+    - Mobile ghost scroll on home
 
 - Cursor
     - make cursor match better
@@ -17,7 +18,7 @@
     - 
 
 - Info tab
-    - Scale for mobile
+    - Replace RESET with home icon
 
 - Start
     - 

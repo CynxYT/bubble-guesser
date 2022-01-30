@@ -107,13 +107,13 @@
     .back-cover {
         z-index: 3;
         position: fixed;
-        bottom: 0;
+        bottom: -100vh;
         left: 0;
-        height: 0;
+        height: 100vh;
         width: 100vw;
         background-color: #d47fad; //#eb97c4;
         pointer-events: none;
-        transition: height ease 0.5s 0.25s;
+        transition: bottom ease 0.5s 0.25s;
     }
 }
 
@@ -144,7 +144,105 @@
 
     .back-cover {
         height: 100vh;
+        bottom: 0;
         pointer-events: initial;
-        transition: height ease 0.5s;
+        transition: bottom ease 0.5s;
+    }
+}
+
+@media(max-width: 1200px) {
+    .info-tab-container {
+        .info-tab-mobile {
+            
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 6;
+            overflow: auto;
+            pointer-events: none;
+
+            .info-tab {
+                position: initial;
+                height: auto;
+                margin: 6rem;
+                width: calc(100vw - 12rem);
+                
+                .exit-button {
+                    position: initial;
+                    margin-left: auto;
+                }
+    
+                .info-text {
+                    width: calc(100vw - 18rem);
+                    margin: 3rem;
+                    margin-top: 1.5rem;
+                }
+
+                .bottom-text {
+                    margin-top: 6rem;
+                }
+        
+        
+                .dev-info {
+                    position: initial;
+                    
+                    margin: 2rem;
+                    text-align: right;
+                }
+            }
+        }
+    }
+    
+    .show-info-tab {
+        .info-tab-mobile {
+            pointer-events: initial;
+
+            .info-tab {
+                height: auto;
+            }
+        }
+    }
+}
+
+
+@media(max-width: 800px) {
+    .info-tab-container {
+        .info-tab-mobile {
+            height: 100vh;
+            .info-tab {
+                margin: 2rem;
+                width: calc(100vw - 4rem);
+
+        
+                .info-text {
+                    width: calc(100vw - 8rem);
+                    margin: 2rem;
+                    margin-top: 0.5rem;
+                    font-size: 1.3rem;
+                }
+
+                .bottom-text {
+                    margin-top: 6rem;
+                }
+        
+                .dev-info {
+                    position: initial;
+                    font-size: 1.3rem;
+                    margin: 2rem;
+                    text-align: right;
+                }
+            }
+        }
+    }
+    
+    .show-info-tab {
+        .info-tab-mobile {
+            pointer-events: initial;
+
+            .info-tab {
+                height: auto;
+            }
+        }
     }
 }
