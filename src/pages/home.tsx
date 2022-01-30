@@ -116,6 +116,7 @@ export default function Home() {
 
     return(
         <div className="home-container">
+
             <div className="guess-int-container">
                 <div className="guess-int">
                     <h1 className="guess-int-number">{guessInt}</h1>
@@ -157,6 +158,7 @@ export default function Home() {
             <div className="bubble-cover">
                 <p className="bubble-cover-text">{bubbleWord}</p>
             </div>
+
         </div>
     );
 }

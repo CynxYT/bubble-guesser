@@ -1,0 +1,43 @@
+.guess-int-container {
+    height: 60vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.guess-int {
+    height: 35vh;
+    width: calc(100vw - 35vh);
+    background-color: white;
+    border-radius: 1rem;
+    border: solid 3px black;
+    box-shadow: 0.5rem 0.5rem black;
+    opacity: 0;
+    transition: opacity ease 0.25s 0.3s, height ease 0.5s 0.3s, transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .guess-int-number {
+        opacity: 1;
+        transition: opacity ease 0.25s;
+    }
+}
+
+@media (max-width: 1200px) {
+    .guess-int {
+        width: 90vw;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .guess-int-container {
+        height: 45vh;
+    }
+
+    .guess-int {
+        height: 40vh;
+    }
+}
