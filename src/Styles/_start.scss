@@ -175,4 +175,52 @@
             width: 80vw;
         }
     }
+
+    .small-start-bubble {
+        height: 4rem;
+        width: 4rem;
+    }
+
+    .medium-start-bubble {
+        height: 7rem;
+        width: 7rem;
+    }
+
+    .big-start-bubble {
+        height: 14rem;
+        width: 14rem;
+    }
+
+    .start-bubble-1 {
+        top: -4rem;
+        left: -4rem;
+    }
+    
+    .start-bubble-2 {
+        top: -4rem;
+        left: 12rem;
+    }
+    
+    .start-bubble-3 {
+        top: 25vh;
+        left: -3rem;
+    }
+    
+    .start-bubble-4 {
+        top: unset;
+        bottom: -4rem;
+        right: -4rem;
+    }
+    
+    .start-bubble-5 {
+        top: unset;
+        bottom: -4rem;
+        right: 12rem;
+    }
+    
+    .start-bubble-6 {
+        top: unset;
+        bottom: 25vh;
+        right: -3rem;
+    }
 }

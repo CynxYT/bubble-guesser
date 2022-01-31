@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import scaleItem from "../hooks/scaleItem";
+import setHover from "../hooks/setHover";
 
 
 export default function InfoTab() {
@@ -20,22 +21,48 @@ export default function InfoTab() {
             <button className="information-button" 
                 onClick={() => setInfo(true)} 
                 onMouseDown={() => scaleItem("information-button", true)} 
-                onMouseUp={() => scaleItem("information-button", false)} 
-                onMouseLeave={() => scaleItem("information-button", false)}>
+                onMouseUp={() => {
+                    scaleItem("information-button", false);
+                    setTimeout(() => {
+                        setHover(false);
+                    }, 400);
+                }} 
+                onMouseLeave={() => {
+                    scaleItem("information-button", false);
+                    setHover(false);
+                }}
+                onMouseEnter={() => setHover(true)}>
                 <p>i</p>
             </button>
 
             <div className={infoClasses}>
                 <div className="info-tab-mobile">
                     <div className="info-tab">
-                        <div className="exit-button" onClick={() => setInfo(false)}><div/><div/></div>
+                        <div className="exit-button" 
+                        onClick={() => setInfo(false)} 
+                        onMouseUp={() => {
+                            setTimeout(() => {
+                                setHover(false);
+                            }, 400);
+                        }} 
+                        onMouseLeave={() => {
+                            setHover(false);
+                        }}
+                        onMouseEnter={() => setHover(true)}>
+                            <div/>
+                            <div/>
+                        </div>
                         <p className="info-text">
                             {"Bubble Guesser was created as a fun side project to sharpen my skills. " + 
                             "I hope you enjoy the merits of my holiday project :)"}
                         </p>
                         <p className="info-text bottom-text">
                             {"How to play: Think of a number between 0 and 100. Let Bubble guess your number " + 
-                            "by pressing 'HIGHER' or 'LOWER'. When displayed, press 'DONE', or press 'RESET' to restart."}
+                            "by pressing 'HIGHER' or 'LOWER'. When displayed, press 'DONE', or press "} 
+                            <span>
+                                <div className="home-span"/>
+                            </span>
+                            {" to restart."}
                         </p>
                         <p className="dev-info">
                             {"developed by CYNX"}

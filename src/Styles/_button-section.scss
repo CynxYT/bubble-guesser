@@ -105,6 +105,14 @@
 
         button {
             width: 40vw;
+
+            &:hover {
+                background-color: white;
+
+                p {
+                    color: black;
+                }
+            }
         }
     }
 
@@ -124,6 +132,16 @@
         right: 0;
         bottom: 0;
         height: 40vh;
+    }
+
+    .red-button-section {
+        button:hover {
+            background-color: #2c2b2b;
+
+            p {
+                color: white;
+            }
+        }
     }
 }
 

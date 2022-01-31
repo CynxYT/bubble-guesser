@@ -29,6 +29,15 @@
     }
 }
 
+.home-span {
+    -webkit-mask-image: url('icons/home-2.svg');
+    mask-image: url('icons/home-2.svg');
+    height: 3.3rem;
+    width: 3.3rem;
+    background-color: black;
+    display: inline-block;
+    transform: translateY(1rem);
+}
 
 .info-tab-container {
 

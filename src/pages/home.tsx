@@ -5,6 +5,7 @@ import Noise from "../components/Noise";
 import Socials from "../components/Socials";
 import StartBubble from "../components/StartBubble";
 import scaleItem from "../hooks/scaleItem";
+import setHover from "../hooks/setHover";
 import showBubbles from "../hooks/showBubbles";
 
 
@@ -128,8 +129,17 @@ export default function Home() {
                     <button className="lower-button" 
                         onClick={guessLower} 
                         onMouseDown={() => scaleItem("lower-button", true)} 
-                        onMouseUp={() => scaleItem("lower-button", false)} 
-                        onMouseLeave={() => scaleItem("lower-button", false)}>
+                        onMouseUp={() => {
+                            scaleItem("lower-button", false);
+                            setTimeout(() => {
+                                setHover(false);
+                            }, 100);
+                        }} 
+                        onMouseLeave={() => {
+                            scaleItem("lower-button", false);
+                            setHover(false);
+                        }}
+                        onMouseEnter={() => setHover(true)}>
                         <p>LOWER</p>
                     </button>
                 </div>
@@ -139,15 +149,33 @@ export default function Home() {
                         <button className="top-red" 
                             onClick={resetGame} 
                             onMouseDown={() => scaleItem("top-red", true)} 
-                            onMouseUp={() => scaleItem("top-red", false)} 
-                            onMouseLeave={() => scaleItem("top-red", false)}>
+                            onMouseUp={() => {
+                                scaleItem("top-red", false);
+                                setTimeout(() => {
+                                    setHover(false);
+                                }, 100);
+                            }} 
+                            onMouseLeave={() => {
+                                scaleItem("top-red", false);
+                                setHover(false);
+                            }}
+                            onMouseEnter={() => setHover(true)}>
                             <div/>
                         </button>
                         <button className="done-red" 
                             onClick={correctGuess} 
                             onMouseDown={() => scaleItem("done-red", true)} 
-                            onMouseUp={() => scaleItem("done-red", false)} 
-                            onMouseLeave={() => scaleItem("done-red", false)}>
+                            onMouseUp={() => {
+                                scaleItem("done-red", false);
+                                setTimeout(() => {
+                                    setHover(false);
+                                }, 100);
+                            }} 
+                            onMouseLeave={() => {
+                                scaleItem("done-red", false);
+                                setHover(false);
+                            }}
+                            onMouseEnter={() => setHover(true)}>
                             <p>DONE!</p>
                         </button>
                     </div>
@@ -157,8 +185,17 @@ export default function Home() {
                     <button className="higher-button" 
                         onClick={guessHigher} 
                         onMouseDown={() => scaleItem("higher-button", true)} 
-                        onMouseUp={() => scaleItem("higher-button", false)} 
-                        onMouseLeave={() => scaleItem("higher-button", false)}>
+                        onMouseUp={() => {
+                            scaleItem("higher-button", false);
+                            setTimeout(() => {
+                                setHover(false);
+                            }, 100);
+                        }} 
+                        onMouseLeave={() => {
+                            scaleItem("higher-button", false);
+                            setHover(false);
+                        }}
+                        onMouseEnter={() => setHover(true)}>
                         <p>HIGHER</p>
                     </button>
                 </div>
@@ -172,8 +209,17 @@ export default function Home() {
                     <button className="start-button" 
                         onClick={() => startGame()} 
                         onMouseDown={() => scaleItem("start-button", true)} 
-                        onMouseUp={() => scaleItem("start-button", false)} 
-                        onMouseLeave={() => scaleItem("start-button", false)}>
+                        onMouseUp={() => {
+                            scaleItem("start-button", false);
+                            setTimeout(() => {
+                                setHover(false);
+                            }, 400);
+                        }} 
+                        onMouseLeave={() => {
+                            scaleItem("start-button", false);
+                            setHover(false);
+                        }}
+                        onMouseEnter={() => setHover(true)}>
                         <p>START</p>
                     </button>
                 </div>

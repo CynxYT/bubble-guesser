@@ -49,20 +49,34 @@
     width: 22rem;
 }
 
-// .bubble-1 {
-//     top: 100vh;
-//     left: 20vw;
-//     transition: top ease 2s;
-// }
+.bubble-1 { background-color: #f08fc2; }
+.bubble-2 { background-color: #e283b6; }
+.bubble-3 { background-color: #e07db2; }
+.bubble-4 { background-color: #f08fc2; }
+.bubble-5 { background-color: #e07db2; }
+.bubble-7 { background-color: #f08fc2; }
+.bubble-8 { background-color: #e283b6; }
 
-// .bubble-2 {
-//     top: 100vh;
-//     left: 60vw;
-//     transition: top ease 2s;
-// }
 
-// .bubble-3 {
-//     top: 100vh;
-//     left: 45vw;
-//     transition: top ease 2s;
-// }
+@media (max-width: 800px) {
+    .small-bubble {
+        height: 4rem;
+        width: 4rem;
+    }
+
+    .normal-bubble {
+        height: 7rem;
+        width: 7rem;
+    }
+
+    .big-bubble {
+        height: 11rem;
+        width: 11rem;
+    }
+
+    .bubble-cover {
+        .bubble-cover-text {
+            font-size: 2rem;
+        }
+    }
+}

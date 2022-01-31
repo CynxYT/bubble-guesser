@@ -1,9 +1,11 @@
 import React from "react";
+import setHover from "../hooks/setHover";
 
 
 
 
 export default function Cursor() {
+
 
     document.onmousemove = (event) => {
         let docs = (document.querySelectorAll(".custom-cursor") as NodeListOf<HTMLElement>);
@@ -25,10 +27,12 @@ export default function Cursor() {
         });
     } 
 
+    
+
     return(
-        <>
+        <div className="cursor-container">
             <div className="custom-cursor cursor-pointer"/>
             <div className="custom-cursor cursor-ring"/>
-        </>
+        </div>
     );
 }
