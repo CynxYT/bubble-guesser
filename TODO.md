@@ -1,5 +1,8 @@
 - General
-    - copyright thing somewhere
+    - 
 
 - Preloader
     - make animations
+
+- Popup
+    - Add a pop-up explaining the rules really quick

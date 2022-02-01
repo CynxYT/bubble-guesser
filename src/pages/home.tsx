@@ -73,7 +73,7 @@ export default function Home() {
     }
 
     function startGame() {
-        callBubbles("#d47fad", "let's get started!", "black");
+        callBubbles("#d47fad", "are you ready?", "black");
 
         let doc2 = document.querySelectorAll(".guess-int, .lower-button, .higher-button, .top-red, .done-red") as NodeListOf<HTMLElement>;
         let doc3 = document.querySelector(".guess-int") as HTMLElement;
@@ -103,7 +103,7 @@ export default function Home() {
     }
 
     function resetGame() {
-        callBubbles("#3f3f3f", "okayyy, maybe next time..", "white");
+        callBubbles("#3f3f3f", "maybe next time..", "white");
 
         setTimeout(() => {
             setGuess(Math.floor(Math.random() * 100));
