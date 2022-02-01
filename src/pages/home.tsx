@@ -2,6 +2,7 @@ import { useState } from "react";
 import Bubbles from "../components/Bubbles";
 import InfoTab from "../components/InfoTab";
 import Noise from "../components/Noise";
+import Popup from "../components/Popup";
 import Socials from "../components/Socials";
 import StartBubble from "../components/StartBubble";
 import scaleItem from "../hooks/scaleItem";
@@ -230,6 +231,8 @@ export default function Home() {
             <Bubbles/>
 
             <Noise/>
+
+            <Popup/>
 
             <div className="bubble-cover">
                 <p className="bubble-cover-text">{bubbleWord}</p>
