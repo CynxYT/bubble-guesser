@@ -11,6 +11,7 @@
     border: solid 3px black;
     box-shadow: 0.2rem 0.2rem black;
     transition: background-color ease 0.5s, transform ease 0.35s;
+    z-index: 2;
 
     p {
         font-size: 1.2rem;
@@ -170,7 +171,7 @@
             top: 0;
             left: 0;
             z-index: 6;
-            overflow: auto;
+            overflow-y: auto;
             pointer-events: none;
 
             .info-tab {

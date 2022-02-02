@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 
 
 export default function Popup() {
+
+    useEffect(() => {
+        setTimeout(() => {
+            let popup = (document.querySelector(".popup-container") as HTMLElement);
+            popup.style.opacity = "1";
+            popup.style.pointerEvents = "all";
+        }, 3800);
+    }, []);
 
 
     function closePopup() {

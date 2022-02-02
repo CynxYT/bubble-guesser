@@ -238,6 +238,8 @@ export default function Home() {
                 <p className="bubble-cover-text">{bubbleWord}</p>
             </div>
 
+            <div className="background"/>
+
         </div>
     );
 }

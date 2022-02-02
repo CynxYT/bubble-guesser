@@ -7,9 +7,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 1;
+    opacity: 0;
     transition: opacity ease 0.5s;
     z-index: 6;
+    pointer-events: none;
+    background-color: transparentize($color: #000000, $amount: 0.9);
 
     .popup-tab {
         width: 40vw;

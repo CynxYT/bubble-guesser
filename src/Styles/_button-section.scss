@@ -5,13 +5,17 @@
     display: grid;
     grid-auto-flow: column;
     z-index: 2;
+    transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 5s;
+    position: fixed;
+    left: 0;
+    top: 60vh;
+    background-color: #eb89be;
 
     .button-inner-section {
         width: calc(100vw / 3);
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 5s;
     }
 
     button {
@@ -47,7 +51,8 @@
 .red-button-section {
     display: grid !important;
     height: 12rem;
-    transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 5s;
+    // transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 5s;
+    // position: fixed;
 
     button {
         height: 6rem !important;
