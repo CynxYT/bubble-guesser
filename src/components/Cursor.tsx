@@ -1,8 +1,4 @@
 import React from "react";
-import setHover from "../hooks/setHover";
-
-
-
 
 export default function Cursor() {
 
