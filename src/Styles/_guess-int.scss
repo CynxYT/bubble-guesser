@@ -41,6 +41,12 @@
 @media (max-width: 800px) {
     .guess-int-container {
         height: 45vh;
+
+        .guess-int {
+            position: initial !important;
+            margin: 0;
+
+        }
     }
 
     .guess-int {

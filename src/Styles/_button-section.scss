@@ -51,8 +51,8 @@
 .red-button-section {
     display: grid !important;
     height: 12rem;
-    // transition: transform cubic-bezier(0.005, 0.01, 0.02, 0.99) 5s;
-    // position: fixed;
+    position: fixed;
+    z-index: 2;
 
     button {
         height: 6rem !important;
@@ -134,9 +134,11 @@
     }
 
     .red-section {
+        bottom: unset;
+        left: unset;
         right: 0;
-        bottom: 0;
-        height: 40vh;
+        top: 60vh;
+        height: 35vh;
     }
 
     .red-button-section {
@@ -156,6 +158,7 @@
     .button-section {
         height: 55vh;
         padding: 0;
+        z-index: 1;
     }
 
     .button-inner-section {

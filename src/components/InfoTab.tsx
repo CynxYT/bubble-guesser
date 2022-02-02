@@ -59,9 +59,7 @@ export default function InfoTab() {
                         <p className="info-text bottom-text">
                             {"HOW TO PLAY: Think of a number between 0 and 100. Let Bubble guess your number " + 
                             "by pressing 'HIGHER' or 'LOWER'. When displayed, press 'DONE', or press "} 
-                            <span>
-                                <div className="home-span"/>
-                            </span>
+                            <span className="home-span"/>
                             {" to return to the home screen."}
                         </p>
                         <p className="dev-info">

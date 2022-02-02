@@ -20,6 +20,15 @@ export default function Home() {
     const[guessCount, setCount] = useState(1);
     const[bubbleWord, setBubbleWords] = useState("let's get started!");
 
+    document.onfullscreenchange = () => {
+        let doc3 = document.querySelector(".guess-int") as HTMLElement;
+        if (window.innerWidth > 1000) {
+            doc3.style.height = "45vh";
+        } else {
+            doc3.style.height = "40vh";
+        }
+    }
+
 
 
     function guessLower() {
@@ -92,13 +101,12 @@ export default function Home() {
                 doc2.forEach((x) => {
                     x.style.opacity = "1";
                 })
-                if (window.screen.availWidth > 800) {
+
+                if (window.innerWidth > 800) {
                     doc3.style.height = "45vh";
                 } else {
-                    doc3.style.height = "40Cvh";
+                    doc3.style.height = "40vh";
                 }
-                
-        
             }, 2600); //time to show first guess
         }, 500);
     }
@@ -146,7 +154,7 @@ export default function Home() {
                 </div>
 
                 <div className="button-inner-section red-section">
-                    <div  className="red-button-section">
+                    <div className="red-button-section">
                         <button className="top-red" 
                             onClick={resetGame} 
                             onMouseDown={() => scaleItem("top-red", true)} 
@@ -227,18 +235,18 @@ export default function Home() {
                 <Socials/>
                 <StartBubble/>
             </div>
-
+ 
             <Bubbles/>
 
             <Noise/>
-
-            <Popup/>
 
             <div className="bubble-cover">
                 <p className="bubble-cover-text">{bubbleWord}</p>
             </div>
 
             <div className="background"/>
+
+            <Popup/>
 
         </div>
     );

@@ -11,7 +11,7 @@ export default function Preloader() {
 
         setTimeout(() => {
             (document.querySelector(".preloader") as HTMLElement).style.display = "none";
-        }, 3000);
+        }, 4450);
     },[initial]);
 
     useEffect(() => {
@@ -20,7 +20,8 @@ export default function Preloader() {
 
     return(
         <div className="preloader">
-            
+            <div className="preloader-ball"/>
+            <div className="preloader-line"/>
         </div>
     );
 }

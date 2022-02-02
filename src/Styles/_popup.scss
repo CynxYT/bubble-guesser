@@ -37,3 +37,30 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .popup-container {
+        .popup-tab {
+            width: 60vw;
+        }
+    }
+}
+
+
+@media (max-width: 765px) {
+    .popup-container {
+        display: initial;
+
+        .popup-tab {
+            width: calc(100vw - 4rem);
+            margin: 2rem;
+            overflow-y: auto;
+            height: calc(100vh - 4rem);
+                        
+            .exit-button {
+                position: fixed;
+                right: 2rem;
+            }
+        }
+    }
+}
