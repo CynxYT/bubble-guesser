@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import scaleItem from "../hooks/scaleItem";
-import setHover from "../hooks/setHover";
+import scaleItem from "../functions/scaleItem";
+import setHover from "../functions/setHover";
 
 
 export default function InfoTab() {

@@ -1,5 +1,5 @@
 import React from "react";
-import setHover from "../hooks/setHover";
+import setHover from "../functions/setHover";
 
 
 
