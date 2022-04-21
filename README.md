@@ -1,3 +1,3 @@
 # Bubble Guesser
 
-Hey! This was a small game I built to sharpen my skills. Enjoy reading through the code :)
+Small holiday project I wrote, although from time to time I rewrite the code because I realise how bad it was.... :')
