@@ -16,11 +16,6 @@ export default function Home() {
     const {bubbleState, setBubbleState} = useContext(BubbleStateContext);
     const {bubbleTextState, setBubbleTextState} = useContext(BubbleTextStateContext);
 
-    useEffect(() => {
-        console.log(bubbleState);
-    }, [bubbleState]);
-
-
 
     return(
         <div className="home-container">
