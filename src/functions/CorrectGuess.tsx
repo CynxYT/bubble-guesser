@@ -1,20 +1,25 @@
-import { useContext } from "react";
-import { BubbleStateContext } from "../context/BubbleStateContext";
-import { CallBubbles } from "./CallBubbles";
-import { resetBubbleState } from "./ResetBubbleState";
+import { Dispatch, SetStateAction } from "react";
+import { BubbleState } from "../context/BubbleStateContext";
+import showBubbles from "./showBubbles";
 
 
-export function correctGuess() {
-    const {bubbleState} = useContext(BubbleStateContext);
+export function CorrectGuess(bubbleState : BubbleState, setBubbleState : Dispatch<SetStateAction<BubbleState>>, setBubbleTextState : Dispatch<SetStateAction<string>>) {
 
+    const MAX = 100;
     
     let guessString = (bubbleState.counter === 1 ? " guess!!" : (bubbleState.counter < 9 ? " guesses!" : " guesses..."));
     let introString = (bubbleState.counter < 5 ? "wow, took me " : (bubbleState.counter < 9 ? "ayye, " : "eh..., "));
     
-    CallBubbles("#3f3f3f", introString + bubbleState.counter + guessString, "white");
+    setBubbleTextState(introString + bubbleState.counter + guessString);
+    showBubbles("#3f3f3f", "white");
 
     setTimeout(() => {
-        resetBubbleState();
+        setBubbleState({
+            guess: Math.floor(Math.random() * MAX),
+            min: 0,
+            max: MAX,
+            counter: 1,
+        })
         let doc = (document.querySelector(".start-tab") as HTMLElement);
         doc.style.display = "flex";
         (document.querySelector(".start-button") as HTMLElement).focus();

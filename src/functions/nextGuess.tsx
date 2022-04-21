@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { BubbleStateContext } from "../context/BubbleStateContext";
+import { Dispatch, SetStateAction } from "react";
+import { BubbleState } from "../context/BubbleStateContext";
 import TransitionCoverText from "./TransitionCoverText";
 
-function nextGuess(guessLower : boolean) {
-    const {bubbleState, setBubbleState} = useContext(BubbleStateContext);
+export function NextGuess(guessLower : boolean, bubbleState : BubbleState, setBubbleState : Dispatch<SetStateAction<BubbleState>>) {
 
     TransitionCoverText();
 

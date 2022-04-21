@@ -1,9 +1,9 @@
 import React from "react";
-import { createContext, Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 const MAX = 100;
 
-type BubbleState = { 
+export type BubbleState = { 
     guess: number,
     min: number,
     max: number,

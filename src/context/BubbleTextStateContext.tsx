@@ -1,4 +1,5 @@
-import { createContext, Dispatch, SetStateAction } from "react";
+import React from "react";
+import { Dispatch, SetStateAction } from "react";
 
 
 type BubbleStateTextContextValue = { 
@@ -11,4 +12,4 @@ export const bubbleTextStateDefaultValue : BubbleStateTextContextValue = {
     setBubbleTextState: bubbleTextState => {},
 };
 
-export const BubbleTextStateContext = createContext(bubbleTextStateDefaultValue);
+export const BubbleTextStateContext = React.createContext(bubbleTextStateDefaultValue);

@@ -1,13 +1,22 @@
-import { CallBubbles } from "./CallBubbles";
-import { resetBubbleState } from "./ResetBubbleState";
+import { Dispatch, SetStateAction } from "react";
+import { BubbleState } from "../context/BubbleStateContext";
+import showBubbles from "./showBubbles";
 
 
+export function resetGame(setBubbleState : Dispatch<SetStateAction<BubbleState>>, setBubbleTextState : Dispatch<SetStateAction<string>>) {
 
-export function resetGame() {
-    CallBubbles("#3f3f3f", "maybe next time..", "white");
+    const MAX = 100;
+
+    setBubbleTextState("maybe next time..");
+    showBubbles("#3f3f3f", "white");
 
     setTimeout(() => {
-        resetBubbleState();
+        setBubbleState({
+            guess: Math.floor(Math.random() * MAX),
+            min: 0,
+            max: MAX,
+            counter: 1,
+        });
         let doc = (document.querySelector(".start-tab") as HTMLElement);
         doc.style.display = "flex";
     },500);
