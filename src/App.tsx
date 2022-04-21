@@ -1,7 +1,7 @@
 import { Router, Route, Switch } from "react-router-dom";
 import history from './hooks/useHistory';
 import './App.css';
-import Home from './pages/home';
+import Home from './pages/Home';
 import Preloader from "./components/Preloader";
 import Cursor from "./components/Cursor";
 import CheckScreenSize from "./functions/CheckScreenSize";
@@ -10,17 +10,22 @@ import { useState } from "react";
 import { BubbleTextStateContext, bubbleTextStateDefaultValue } from "./context/BubbleTextStateContext";
 
 
-function App() {
+export default function App() {
 
-  // ------------------- Context state values -------------------
+  // ---- Context States ----
 
-  const [bubbleState, setBubbleState] = useState(bubbleStateDefaultValue.bubbleState);
-
-  const [bubbleTextState, setBubbleTextState] = useState(bubbleTextStateDefaultValue.bubbleTextState);
-
+  const [bubbleState, setBubbleState] = useState(bubbleStateDefaultValue.bubbleState); // stores all values for guesser game
+  const [bubbleTextState, setBubbleTextState] = useState(bubbleTextStateDefaultValue.bubbleTextState); // stores text displayed on transition between game and start screen
 
 
-  CheckScreenSize();
+
+  // ---- Check screen size ----
+
+  CheckScreenSize(); // hacky solution... 
+
+
+
+  // --------------------------------------------------------
 
   return (
       <>
@@ -38,5 +43,3 @@ function App() {
     </>
   );
 }
-
-export default App;
