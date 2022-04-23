@@ -1,36 +1,123 @@
-import React from "react";
+import { useEffect, useRef, useState } from "react";
+import useHover from "../hooks/useHover";
 
 export default function Cursor() {
 
-    let height = window.innerHeight;
-    let width = window.innerWidth;
+    type CursorRef = {
+        mouseX: number,
+        mouseY: number,
+        destinationX: number,
+        destinationY: number,
+        distanceX: number,
+        distanceY: number,
+        key: number,
+    }
 
-    if (width > 1000) {
-        document.onmousemove = (event) => {
-            let docs = (document.querySelectorAll(".custom-cursor") as NodeListOf<HTMLElement>);
-            let game = (document.querySelectorAll(".button-section, .guess-int") as NodeListOf<HTMLElement>);
+    function isTouchDevice() {
+        return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0));
+    }
+
+    const [isHover, setHover] = useState(false);
+    const [initial, setInitial] = useState(true);
+    const secondaryCursor = useRef<HTMLDivElement>(null);
+    const mainCursor = useRef<HTMLDivElement>(null);
+    const positionRef = useRef<CursorRef>({
+      mouseX: 0,
+      mouseY: 0,
+      destinationX: 0,
+      destinationY: 0,
+      distanceX: 0,
+      distanceY: 0,
+      key: -1,
+    });
+
+    useEffect(() => {
+        setTimeout(() => {
+            setInitial(false);
+        }, 100);
+    }, []);
+
+    useHover(isHover, initial);
+
+    useEffect(() => {
+
+        if (isTouchDevice() === true && window.innerWidth < 1400) {
+            return;
+        }
+
+        onmousemove = (event) => {
+            const { clientX, clientY } = event;
+            let hoverItems = (document.querySelectorAll("button, .hover-item") as NodeListOf<HTMLElement>);
+            (document.querySelector(".main-cursor") as HTMLElement).style.opacity = "1";
+            (document.querySelector(".secondary-cursor") as HTMLElement).style.opacity = "1";
+
+            const mouseX = clientX;
+            const mouseY = clientY;
+            if (secondaryCursor.current !== null && mainCursor.current !== null) {
+                positionRef.current.mouseX = mouseX - (secondaryCursor.current).clientWidth / 2;
+                positionRef.current.mouseY = mouseY - (secondaryCursor.current).clientHeight / 2;
+                mainCursor.current.style.transform = `translate(${mouseX - (mainCursor.current).clientWidth / 2}px, ${mouseY - (mainCursor.current).clientHeight / 2}px)`;
+            }
+
+
+            // ----------------------------------------------------------
+
+            hoverItems.forEach((x) => {
+                x.onmouseover = () => {setHover(true);}
+                x.onmouseout = () => {setHover(false);}
+            });
     
-            docs.forEach((x) => {
-                x.style.transform = "translate(calc(" + event.pageX + "px - 5rem), calc(" + event.pageY + "px - 5rem))";
-            });
+        }
 
-            game.forEach((x) => {
-                x.style.transform = "translate( " +  ((event.pageX - width/2) / 100) + "px, " + ((event.pageY - height/2) / 100) + "px)";
-            }); 
+        return () => {};
+        
+    }, []);
 
-            [1,2,3,4,5,6].forEach((x) => {
-                (document.querySelector(".start-bubble-" + x) as HTMLElement).style.transform = "translate(" + ((event.pageX - width/2) / 50) * (x % 3 === 1 ? 0.5 : ((x - 1) % 3) / 1.5) + 
-                                                                                                "px, " + ((event.pageY - height/2) / 50) * (x % 3 === 1 ? 0.5 : ((x - 1) % 3) / 1.5) + "px)";
-            });
-       }
-    } 
+    useEffect(() => {
 
+        const followMouse = () => {            
+            positionRef.current.key = requestAnimationFrame(followMouse);
+            const {
+              mouseX,
+              mouseY,
+              destinationX,
+              destinationY,
+              distanceX,
+              distanceY,
+            } = positionRef.current;
+
+            if (!destinationX || !destinationY) {
+              positionRef.current.destinationX = mouseX;
+              positionRef.current.destinationY = mouseY;
+            } else {
+              positionRef.current.distanceX = (mouseX - destinationX) * 0.1;
+              positionRef.current.distanceY = (mouseY - destinationY) * 0.1;
+
+              if (Math.abs(positionRef.current.distanceX) + Math.abs(positionRef.current.distanceY) < 0.1) {
+                positionRef.current.destinationX = mouseX;
+                positionRef.current.destinationY = mouseY;
+              } else {
+                positionRef.current.destinationX += distanceX;
+                positionRef.current.destinationY += distanceY;
+              }
+            }
+
+            if (secondaryCursor.current !== null) (secondaryCursor.current).style.transform = `translate(${destinationX}px, calc(${destinationY}px)`;
+
+        };
+
+        followMouse();
+    }, []);
     
 
     return(
-        <div className="cursor-container">
-            <div className="custom-cursor cursor-pointer"/>
-            <div className="custom-cursor cursor-ring"/>
+        <div className={`cursor-wrapper`}>
+            <div className="main-cursor" ref={mainCursor}>
+                <div className="main-cursor-background"/>
+            </div>
+            <div className="secondary-cursor" ref={secondaryCursor}>
+                <div className="secondary-cursor-background"/>
+            </div>
         </div>
     );
 }

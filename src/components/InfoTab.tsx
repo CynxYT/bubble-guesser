@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import scaleItem from "../functions/scaleItem";
-import setHover from "../functions/setHover";
-
 
 export default function InfoTab() {
 
@@ -21,34 +19,16 @@ export default function InfoTab() {
             <button className="information-button" 
                 onClick={() => setInfo(true)} 
                 onMouseDown={() => scaleItem("information-button", true)} 
-                onMouseUp={() => {
-                    scaleItem("information-button", false);
-                    setTimeout(() => {
-                        setHover(false);
-                    }, 400);
-                }} 
-                onMouseLeave={() => {
-                    scaleItem("information-button", false);
-                    setHover(false);
-                }}
-                onMouseEnter={() => setHover(true)}>
+                onMouseUp={() => scaleItem("information-button", false)} 
+                onMouseLeave={() => scaleItem("information-button", false)}>
                 <p>i</p>
             </button>
 
             <div className={infoClasses}>
                 <div className="info-tab-mobile">
                     <div className="info-tab">
-                        <div className="exit-button" 
-                        onClick={() => setInfo(false)} 
-                        onMouseUp={() => {
-                            setTimeout(() => {
-                                setHover(false);
-                            }, 400);
-                        }} 
-                        onMouseLeave={() => {
-                            setHover(false);
-                        }}
-                        onMouseEnter={() => setHover(true)}>
+                        <div className="exit-button hover-item" 
+                        onClick={() => setInfo(false)}>
                             <div/>
                             <div/>
                         </div>

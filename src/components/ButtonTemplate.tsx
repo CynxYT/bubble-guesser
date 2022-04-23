@@ -1,10 +1,9 @@
-import React, { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { BubbleState } from "../context/BubbleStateContext";
 import { CorrectGuess } from "../functions/CorrectGuess";
 import { NextGuess } from "../functions/NextGuess";
 import { resetGame } from "../functions/ResetGame";
 import scaleItem from "../functions/scaleItem";
-import setHover from "../functions/setHover";
 import { StartGame } from "../functions/StartGame";
 
 
@@ -63,17 +62,8 @@ export default function ButtonTemplate(buttonIndex : number, bubbleState : Bubbl
         <button className={arr[buttonIndex].name}
             onClick={runSwitch} 
             onMouseDown={() => scaleItem(arr[buttonIndex].name, true)} 
-            onMouseUp={() => {
-                scaleItem(arr[buttonIndex].name, false);
-                setTimeout(() => {
-                    setHover(false);
-                }, 100);
-            }} 
-            onMouseLeave={() => {
-                scaleItem(arr[buttonIndex].name, false);
-                setHover(false);
-            }}
-            onMouseEnter={() => setHover(true)}>
+            onMouseUp={() => scaleItem(arr[buttonIndex].name, false)} 
+            onMouseLeave={() => scaleItem(arr[buttonIndex].name, false)}>
             {buttonIndex === 3 ? <div/> : <p>{arr[buttonIndex].text}</p>}
         </button>
     );

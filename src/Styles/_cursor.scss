@@ -2,53 +2,66 @@
     cursor: none;
 }
 
-.custom-cursor {
-    margin: calc(4.25rem + 1.5px);
-    border-radius: 50%;
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 15;
-    transform: translate(100vh,-100vw);
+.main-cursor,
+.secondary-cursor {
+  z-index: 15;
+  pointer-events: none;
+  transform: translate(-10rem, -10rem);
+  position: fixed;
+  opacity: 0;
+  transition: opacity ease 0.5s;
 }
 
-.cursor-pointer {
-    height: 1rem;
-    width: 1rem;
-    background-color: white;
-    border: solid 3px black;
-    transition: top ease 0.5s,
-                left ease 0.5s,
-                height ease 0.5s,
-                width ease 0.5s,
-                background-color ease 0.5s,
-                margin ease 0.5s;
+.main-cursor {
+  transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1);
+  animation: fadeIn 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 9rem;
+  width: 9rem;
 }
 
-.cursor-ring {
-    height: 2.5rem;
-    width: 2.5rem;
-    margin: 2rem;
-    transition: transform cubic-bezier(0.005, 0.008, 0.02, 0.999) 1s, opacity ease 0.5s;
-    border: solid 3px black;
-    left: calc(1.75rem - 2px);
-    top: calc(1.75rem - 2px);
-    z-index: 14;
+.main-cursor-background {
+  height: 1rem;
+  width: 1rem;
+  background-color: white;
+  border: solid 3px black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  transition: height ease 0.5s,
+              width ease 0.5s,
+              margin ease 0.5s,
+              background-color ease 0.5s;
 }
 
-.cursor-hover {
-    .cursor-pointer {
-        height: 2.5rem;
-        width: 2.5rem;
-        background-color: transparent;
-        margin: calc(3.5rem + 1.5px);
-    }
-    
-    .cursor-ring {
-        opacity: 0;
-        transition: transform cubic-bezier(0.005, 0.008, 0.02, 0.999) 1s, opacity ease 0.5s;
-    }
+.main-cursor-hover {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: transparent;
+}
+
+.secondary-cursor-background {
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  opacity: 1;
+  margin: calc((9rem - 2.5rem) / 2);
+  display: flex;
+  border: solid 3px black;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  transition: width ease 0.5s,
+              height ease 0.5s,
+              margin ease 0.5s,
+              background-color ease 0.5s,
+              opacity ease 0.5s;
+}
+
+.secondary-cursor-hover {
+    opacity: 0;
 }
 
 @media(max-width: 1200px) {
