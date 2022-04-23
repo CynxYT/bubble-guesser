@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { BubbleState } from "../context/BubbleStateContext";
-import showBubbles from "./showBubbles";
+import ShowBubbles from "./ShowBubbles";
 
 
 export function CorrectGuess(bubbleState : BubbleState, setBubbleState : Dispatch<SetStateAction<BubbleState>>, setBubbleTextState : Dispatch<SetStateAction<string>>) {
@@ -11,7 +11,7 @@ export function CorrectGuess(bubbleState : BubbleState, setBubbleState : Dispatc
     let introString = (bubbleState.counter < 5 ? "wow, took me " : (bubbleState.counter < 9 ? "ayye, " : "eh..., "));
     
     setBubbleTextState(introString + bubbleState.counter + guessString);
-    showBubbles("#3f3f3f", "white");
+    ShowBubbles("#3f3f3f", "white");
 
     setTimeout(() => {
         setBubbleState({

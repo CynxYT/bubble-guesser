@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction } from "react";
-import showBubbles from "./showBubbles";
+import ShowBubbles from "./ShowBubbles";
 
 
 export function StartGame(setBubbleTextState: Dispatch<SetStateAction<string>>) {
 
     setBubbleTextState("are you ready?");
-    showBubbles("#d47fad", "black")
+    ShowBubbles("#d47fad", "black")
 
     let doc2 = document.querySelectorAll(".guess-int, .lower-button, .higher-button, .top-red, .done-red") as NodeListOf<HTMLElement>;
     let doc3 = document.querySelector(".guess-int") as HTMLElement;

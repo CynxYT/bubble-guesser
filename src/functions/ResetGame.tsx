@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { BubbleState } from "../context/BubbleStateContext";
-import showBubbles from "./showBubbles";
+import ShowBubbles from "./ShowBubbles";
 
 
 export function resetGame(setBubbleState : Dispatch<SetStateAction<BubbleState>>, setBubbleTextState : Dispatch<SetStateAction<string>>) {
@@ -8,7 +8,7 @@ export function resetGame(setBubbleState : Dispatch<SetStateAction<BubbleState>>
     const MAX = 100;
 
     setBubbleTextState("maybe next time..");
-    showBubbles("#3f3f3f", "white");
+    ShowBubbles("#3f3f3f", "white");
 
     setTimeout(() => {
         setBubbleState({

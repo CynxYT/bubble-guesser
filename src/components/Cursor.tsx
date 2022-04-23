@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import useHover from "../hooks/useHover";
+import SetHover from "../functions/SetHover";
 
 export default function Cursor() {
 
@@ -37,7 +37,7 @@ export default function Cursor() {
         }, 100);
     }, []);
 
-    useHover(isHover, initial);
+    SetHover(isHover, initial);
 
     useEffect(() => {
 
