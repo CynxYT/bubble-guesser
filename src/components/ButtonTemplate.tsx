@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction } from "react";
 import { BubbleState } from "../context/BubbleStateContext";
-import { CorrectGuess } from "../functions/CorrectGuess";
-import { NextGuess } from "../functions/NextGuess";
-import { resetGame } from "../functions/ResetGame";
+import { correctGuess } from "../functions/correctGuess";
+import { nextGuess } from "../functions/nextGuess";
+import { resetGame } from "../functions/resetGame";
 import scaleItem from "../functions/scaleItem";
-import { StartGame } from "../functions/StartGame";
+import { startGame } from "../functions/startGame";
 
 
 
@@ -42,19 +42,19 @@ export default function ButtonTemplate(buttonIndex : number, bubbleState : Bubbl
     function runSwitch() {
         switch(buttonIndex) {
             case 0:
-                StartGame(setBubbleTextState);
+                startGame(setBubbleTextState);
                 break;
             case 1:
-                NextGuess(false, bubbleState, setBubbleState);
+                nextGuess(false, bubbleState, setBubbleState);
                 break;
             case 2:
-                NextGuess(true, bubbleState, setBubbleState);
+                nextGuess(true, bubbleState, setBubbleState);
                 break;
             case 3: 
                 resetGame(setBubbleState, setBubbleTextState);
                 break;
             case 4: 
-                CorrectGuess(bubbleState, setBubbleState, setBubbleTextState);
+                correctGuess(bubbleState, setBubbleState, setBubbleTextState);
         }
     }
 

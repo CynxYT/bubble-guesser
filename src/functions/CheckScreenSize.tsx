@@ -1,7 +1,5 @@
-import React from "react";
 
-
-export default function CheckScreenSize() {
+export default function checkScreenSize() {
     document.onfullscreenchange = () => {
         let doc3 = document.querySelector(".guess-int") as HTMLElement;
         if (window.innerWidth > 1000) {

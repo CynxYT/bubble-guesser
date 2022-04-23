@@ -4,7 +4,7 @@ import './App.css';
 import Home from './pages/Home';
 import Preloader from "./components/Preloader";
 import Cursor from "./components/Cursor";
-import CheckScreenSize from "./functions/CheckScreenSize";
+import checkScreenSize from "./functions/checkScreenSize";
 import { BubbleStateContext, bubbleStateDefaultValue} from "./context/BubbleStateContext";
 import { useState } from "react";
 import { BubbleTextStateContext, bubbleTextStateDefaultValue } from "./context/BubbleTextStateContext";
@@ -21,7 +21,7 @@ export default function App() {
 
   // ---- Check screen size ----
 
-  CheckScreenSize(); // hacky solution... 
+  checkScreenSize(); // hacky solution... 
 
 
 

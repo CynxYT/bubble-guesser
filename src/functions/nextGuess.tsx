@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction } from "react";
 import { BubbleState } from "../context/BubbleStateContext";
-import TransitionCoverText from "./TransitionCoverText";
+import transitionCoverText from "./transitionCoverText";
 
-export function NextGuess(guessLower : boolean, bubbleState : BubbleState, setBubbleState : Dispatch<SetStateAction<BubbleState>>) {
+export function nextGuess(guessLower : boolean, bubbleState : BubbleState, setBubbleState : Dispatch<SetStateAction<BubbleState>>) {
 
-    TransitionCoverText();
+    transitionCoverText();
 
     setTimeout(() => {
         setBubbleState({

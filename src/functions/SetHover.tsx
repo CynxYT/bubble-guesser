@@ -1,6 +1,6 @@
 
 
-export default function SetHover(isHover : boolean, initial : boolean) {
+export default function setHover(isHover : boolean, initial : boolean) {
 
     let mainCursor = (document.querySelector(".main-cursor-background") as HTMLElement);
     let secondaryCursor = (document.querySelector(".secondary-cursor-background") as HTMLElement);

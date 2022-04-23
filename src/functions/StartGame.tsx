@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
-import ShowBubbles from "./ShowBubbles";
+import ShowBubbles from "./showBubbles";
 
 
-export function StartGame(setBubbleTextState: Dispatch<SetStateAction<string>>) {
+export function startGame(setBubbleTextState: Dispatch<SetStateAction<string>>) {
 
     setBubbleTextState("are you ready?");
     ShowBubbles("#d47fad", "black")

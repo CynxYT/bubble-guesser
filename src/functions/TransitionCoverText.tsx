@@ -1,7 +1,5 @@
-import React from "react";
 
-
-export default function TransitionCoverText() {
+export default function transitionCoverText() {
     let doc = document.querySelector(".guess-int-number") as HTMLElement;
     doc.style.opacity = "0";
 

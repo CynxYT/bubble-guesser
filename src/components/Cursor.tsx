@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import SetHover from "../functions/SetHover";
+import setHover from "../functions/setHover";
 
 export default function Cursor() {
 
@@ -17,7 +17,7 @@ export default function Cursor() {
         return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0));
     }
 
-    const [isHover, setHover] = useState(false);
+    const [isHover, setHoverState] = useState(false);
     const [initial, setInitial] = useState(true);
     const secondaryCursor = useRef<HTMLDivElement>(null);
     const mainCursor = useRef<HTMLDivElement>(null);
@@ -37,7 +37,7 @@ export default function Cursor() {
         }, 100);
     }, []);
 
-    SetHover(isHover, initial);
+    setHover(isHover, initial);
 
     useEffect(() => {
 
@@ -63,8 +63,8 @@ export default function Cursor() {
             // ----------------------------------------------------------
 
             hoverItems.forEach((x) => {
-                x.onmouseover = () => {setHover(true);}
-                x.onmouseout = () => {setHover(false);}
+                x.onmouseover = () => {setHoverState(true);}
+                x.onmouseout = () => {setHoverState(false);}
             });
     
         }

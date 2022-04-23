@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { BubbleState } from "../context/BubbleStateContext";
-import ShowBubbles from "./ShowBubbles";
+import ShowBubbles from "./showBubbles";
 
 
 export function resetGame(setBubbleState : Dispatch<SetStateAction<BubbleState>>, setBubbleTextState : Dispatch<SetStateAction<string>>) {
